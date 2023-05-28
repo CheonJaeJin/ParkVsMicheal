@@ -10,12 +10,12 @@ void Print12()
 
 Scene2::Scene2()
 {
-   //test
+    // test
+    
+    // df dswf gfdsg  
 
 
-
-
-    //RESOURCE->ReleaseAll();
+    // RESOURCE->ReleaseAll();
 }
 
 Scene2::~Scene2()
