@@ -271,8 +271,56 @@ void GameObject::RenderDetail()
 			ImGui::EndTabItem();
 		}
 
+		if (ImGui::BeginTabItem("Collider"))
+		{
+			if (collider)
+			{
+				collider->RenderDetail();
+				if (ImGui::Button("Delete"))
+				{
+					SafeDelete(collider);
+				}
+			}
+			else
+			{
+				ImGui::Text("Create");
+				if (ImGui::Button("Box"))
+				{
+					collider = new Collider(ColliderType::BOX);
+				}
+				ImGui::SameLine();
+				if (ImGui::Button("OBox"))
+				{
+					collider = new Collider(ColliderType::OBOX);
+				}
+				ImGui::SameLine();
+				if (ImGui::Button("Sphere"))
+				{
+					collider = new Collider(ColliderType::SPHERE);
+				}
+			}
+			ImGui::EndTabItem();
+		}
+
+
 		ImGui::EndTabBar();
 	}
+}
+bool GameObject::Intersect(GameObject* target)
+{
+	if (collider and target->collider)
+	{
+		return collider->Intersect(target->collider);
+	}
+	return false;
+}
+bool GameObject::Intersect(Ray Ray, Vector3& Hit)
+{
+	if (collider)
+	{
+		return collider->Intersect(Ray, Hit);
+	}
+	return false;
 }
 void Actor::RenderDetail()
 {

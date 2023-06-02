@@ -162,6 +162,7 @@ Ray Util::MouseToRay(Vector3 Mouse, Camera* Cam)
 {
 	Mouse.x -= Cam->viewport.x;
 	Mouse.y -= Cam->viewport.y;
+
 	Vector2 MousePos;
 
 	//ndc로의 변환
@@ -179,4 +180,26 @@ Ray Util::MouseToRay(Vector3 Mouse, Camera* Cam)
 	CamToMouse.direction = Vector3::TransformNormal(CamToMouse.direction, inverse);
 	CamToMouse.direction.Normalize();
 	return CamToMouse;
+}
+
+float Util::LerpRotation(float radian1, float radian2, float value, OUT float& dis)
+{
+	radian1 = Util::NormalizeAngle(radian1);
+	radian2 = Util::NormalizeAngle(radian2);
+
+	dis = radian2 - radian1;
+
+	if (dis > PI)
+	{
+		//srcR
+		radian1 += PI_2;
+	}
+	else if (dis < -PI)
+	{
+		radian1 -= PI_2;
+	}
+
+	dis = fabs(radian2 - radian1);
+
+	return Util::Lerp(radian1, radian2, value);
 }

@@ -159,7 +159,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BinaryFile.h" />
+    <ClInclude Include="BlendState.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Collider.h" />
     <ClInclude Include="DepthState.h" />
     <ClInclude Include="Direct3D11.h" />
     <ClInclude Include="Dwrite.h" />
@@ -186,7 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinaryFile.cpp" />
+    <ClCompile Include="BlendState.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Collider.cpp" />
     <ClCompile Include="DepthState.cpp" />
     <ClCompile Include="Direct3D11.cpp" />
     <ClCompile Include="Dwrite.cpp" />

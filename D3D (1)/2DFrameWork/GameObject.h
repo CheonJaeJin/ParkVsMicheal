@@ -1,5 +1,13 @@
 #pragma once
-
+enum class MainState
+{
+	IDLE,
+	SWIMMING,
+	BOOSTER,
+	DROWN,
+	WINNER,
+	LOSER
+};
 enum class ObType
 {
 	GameObject,
@@ -28,13 +36,14 @@ public:
 	//member
 protected:
 	ObType						type;
-	shared_ptr<Shader>			shader;
 	
 public:
+	shared_ptr<Shader>			shader;
 	shared_ptr<Texture>			texture;
 	shared_ptr<Mesh>			mesh;
 	string						name;	//key
 	bool						visible;
+	class Collider*				collider;
 	class Actor*				root;
 	map<string, GameObject*>	children;
 	
@@ -51,7 +60,8 @@ public:
 	void			AddChild(GameObject* child);
 	virtual bool	RenderHierarchy();
 	virtual void	RenderDetail();
-
+	bool            Intersect(GameObject* target);
+	bool            Intersect(Ray Ray, Vector3& Hit);
 	//Getter Setter
 };
 

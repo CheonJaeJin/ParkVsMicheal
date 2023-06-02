@@ -4,12 +4,9 @@ class Scene1 : public Scene
 {
 private:
 	Camera* Cam;
+	Grid* grid;
 
 	Actor* Player;
-	Actor* cube1;
-	Actor* cube2;
-	
-
 
 public:
 	Scene1();

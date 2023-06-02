@@ -2,37 +2,52 @@
 
 Mesh::Mesh()
 {
-    vertexType = VertexType::PC;
+    vertexType = VertexType::PT;
     primitiveTopology = D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
-    byteWidth = sizeof(VertexPC);
-    VertexPC* Vertex = new VertexPC[4];
-    vertexCount = 4;
-    indexCount = 6;
-    indices = new UINT[6];
+    byteWidth = sizeof(VertexPT);
+    vertexCount = 4 * 6;
+    indexCount = 6 * 6;
 
-    Vertex[0].position.x = -0.5f;
-    Vertex[0].position.y = -0.5f;
-    Vertex[0].color = Color(0, 0, 1);
+    VertexPT* Vertex = new VertexPT[vertexCount];
+    indices = new UINT[indexCount];
 
-    Vertex[1].position.x = -0.5f;
-    Vertex[1].position.y = 0.5f;
-    Vertex[1].color = Color(0, 0, 1);
+    Vertex[0].position = Vector3(-1, -1, -1);
+    Vertex[1].position = Vector3(-1, 1,  -1);
+    Vertex[2].position = Vector3(1, -1,  -1);
+    Vertex[3].position = Vector3(1,  1,  -1);
+
+    for (int i = 1; i < 4; i++)
+    {
+       Matrix R =  Matrix::CreateRotationY(PI * 0.5f * i);
+       Vertex[0 + i * 4].position = Vector3::Transform(Vertex[0].position, R);
+       Vertex[1 + i * 4].position = Vector3::Transform(Vertex[1].position, R);
+       Vertex[2 + i * 4].position = Vector3::Transform(Vertex[2].position, R);
+       Vertex[3 + i * 4].position = Vector3::Transform(Vertex[3].position, R);
+    }
+    for (int i = 4; i < 6; i++)
+    {
+        Matrix R = Matrix::CreateRotationX(PI * 0.5f + (PI * (i-4)));
+        Vertex[0 + i * 4].position = Vector3::Transform(Vertex[0].position, R);
+        Vertex[1 + i * 4].position = Vector3::Transform(Vertex[1].position, R);
+        Vertex[2 + i * 4].position = Vector3::Transform(Vertex[2].position, R);
+        Vertex[3 + i * 4].position = Vector3::Transform(Vertex[3].position, R);
+    }
+
+    indices = new UINT[indexCount];
+
+    //¾Õ¸é
+    for (int i = 0; i < 6; i++)
+    {
+        indices[i * 6 + 0] = i * 4 + 0;
+        indices[i * 6 + 1] = i * 4 + 1;
+        indices[i * 6 + 2] = i * 4 + 2;
+
+        indices[i * 6 + 3] = i * 4 + 1;
+        indices[i * 6 + 4] = i * 4 + 3;
+        indices[i * 6 + 5] = i * 4 + 2;
+    }
     
-    Vertex[2].position.x = 0.5f;
-    Vertex[2].position.y = -0.5f;
-    Vertex[2].color = Color(0, 0, 1);
 
-    Vertex[3].position.x = 0.5f;
-    Vertex[3].position.y = 0.5f;
-    Vertex[3].color = Color(0, 0, 1);
-
-    indices[0] = 0;
-    indices[1] = 1;
-    indices[2] = 2;
-
-    indices[3] = 1;
-    indices[4] = 3;
-    indices[5] = 2;
 
 
     
@@ -408,4 +423,38 @@ void Mesh::SaveFile(string file)
         out.UInt(indices[i]);
     }
     out.Close();
+}
+
+void Mesh::Reset()
+{
+    SafeRelease(indexBuffer);
+    SafeRelease(vertexBuffer);
+    //CreateVertexBuffer
+    {
+        D3D11_BUFFER_DESC desc;
+        desc = { 0 };
+        desc.Usage = D3D11_USAGE_DEFAULT;
+        desc.ByteWidth = byteWidth * vertexCount;
+        desc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+
+        D3D11_SUBRESOURCE_DATA data = { 0 };
+        data.pSysMem = vertices;
+
+        HRESULT hr = D3D->GetDevice()->CreateBuffer(&desc, &data, &vertexBuffer);
+        assert(SUCCEEDED(hr));
+    }
+
+    //Create Index Buffer
+    {
+        D3D11_BUFFER_DESC desc;
+        ZeroMemory(&desc, sizeof(D3D11_BUFFER_DESC));
+        desc.ByteWidth = sizeof(UINT) * indexCount;
+        desc.BindFlags = D3D11_BIND_INDEX_BUFFER;
+
+        D3D11_SUBRESOURCE_DATA data = { 0 };
+        data.pSysMem = indices;
+
+        HRESULT hr = D3D->GetDevice()->CreateBuffer(&desc, &data, &indexBuffer);
+        assert(SUCCEEDED(hr));
+    }
 }

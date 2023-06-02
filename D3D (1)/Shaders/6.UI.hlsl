@@ -25,8 +25,8 @@ float4 PS(PixelInput input) : SV_TARGET
 {
 	float4 BaseColor = TextureD.Sample(SamplerD, input.Uv);
        
-    if (BaseColor.a == 0)
-        discard;
+    //if (BaseColor.a == 0)
+    //    discard;
     
     return BaseColor;
 }

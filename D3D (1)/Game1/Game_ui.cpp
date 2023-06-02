@@ -1,0 +1,195 @@
+#include "stdafx.h"
+
+Game_ui* Game_ui::Create(string name)
+{
+	Game_ui* temp = new Game_ui();
+	temp->LoadFile("Game_ui.xml");
+
+	return temp;
+}
+
+Game_ui::Game_ui()
+{
+	p1_letters = new char[6];
+	p1_letters[0] = { 'q' };
+	p1_letters[1] = { 'w' };
+	p1_letters[2] = { 'e' };
+	p1_letters[3] = { 'a' };
+	p1_letters[4] = { 's' };
+	p1_letters[5] = { 'd' };
+
+	p1_random_letters = make_random_p1(p1_letters, 6);
+
+	input_count = 0;
+
+	game_start = false;
+}
+
+Game_ui::~Game_ui()
+{
+}
+
+void Game_ui::Update()
+{
+	if (INPUT->KeyDown('9'))
+	{
+		cout << 1 << endl;
+		game_start = true;
+	}
+	if (!game_start) // 비지블 안꺼주면 이상한 박스가 플레이어 위에 노출되서 visible 껐습니다.
+	{
+		Find("pos1_1")->visible = false;
+		Find("pos1_2")->visible = false;
+		Find("pos1_3")->visible = false;
+		Find("pos1_4")->visible = false;
+		Find("pos1_5")->visible = false;
+		Find("pos1_6")->visible = false;
+		Find("pos1_7")->visible = false;
+	}
+	if (game_start) // 입력받을때는 다시 visible 켜주었습니다.
+	{
+		Find("pos1_1")->visible = true;
+		Find("pos1_2")->visible = true;
+		Find("pos1_3")->visible = true;
+		Find("pos1_4")->visible = true;
+		Find("pos1_5")->visible = true;
+		Find("pos1_6")->visible = true;
+		Find("pos1_7")->visible = true;
+		set_im_ui();
+
+		char currentInput;
+		if (INPUT->KeyDown('Q'))
+		{
+			currentInput = 'q';
+		}
+		else if (INPUT->KeyDown('W'))
+		{
+			currentInput = 'w';
+		}
+		else if (INPUT->KeyDown('E'))
+		{
+			currentInput = 'e';
+		}
+		else if (INPUT->KeyDown('A'))
+		{
+			currentInput = 'a';
+		}
+		else if (INPUT->KeyDown('S'))
+		{
+			currentInput = 's';
+		}
+		else if (INPUT->KeyDown('D'))
+		{
+			currentInput = 'd';
+		}
+		else
+		{
+			currentInput = '\0';
+		}
+
+		// player 입력 확인 매크로들
+		if (currentInput != '\0' && currentInput == p1_random_letters[input_count])
+		{
+			// 한 입력이 정확할 경우 원하는 동작 수행 가능
+				// 1. 다음 문자 확인
+			cout << "맞음" << endl;
+			input_count++;
+			set_im_ui();
+		}
+		else if (currentInput != '\0')
+		{
+			// 한 입력이 틀릴 경우
+				// 1. 처음으로 되돌림  (0)
+				// 2. 헤엄치지 못하는 모션 나오게 하는 불값 둘수 있음
+
+			cout << "틀림" << endl;
+			input_count = 0;
+			set_im_ui();
+		}
+		if (input_count == p1_random_letters.size())
+		{
+			// 모든 입력이 맞을 경우
+				// 1. 시퀸스 재설정
+				// 2. 부스터 모션 나오가 하는 불 값 둘수 있음
+			p1_random_letters = make_random_p1(p1_letters, 6);
+			input_count = 0;
+
+		}
+		Actor::Update();
+	}
+
+	Actor::Update();
+}
+
+void Game_ui::Release()
+{
+	for (auto it = children.begin(); it != children.end(); it++)
+	{
+		SafeRelease(it->second);
+	}
+	delete this;
+}
+
+vector<char> Game_ui::make_random_p1(char*& _p1_letter, int size)
+{
+	vector<char> mixed_letters;
+
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<> dis(0, size - 1);
+
+	for (int i = 0; i < 7; i++)
+	{
+		int index = dis(gen);
+		mixed_letters.push_back(_p1_letter[index]);
+	}
+
+	return mixed_letters;
+}
+
+bool Game_ui::checked_input(const vector<char>& computerLetters, const vector<char>& playerInput, int inputCount)
+{
+	for (int i = 0; i < inputCount; i++)
+	{
+		if (playerInput[i] != computerLetters[i])
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
+void Game_ui::set_pos_ui(Actor* _player)
+{ // 재진씨 플레이어 머리랑 위치겹쳐져서 따로설정하고 Y축만 좀더 위로 잡았어요 by.관희
+	this->SetWorldPosX(_player->GetWorldPos().x);
+	this->SetWorldPosY(_player->GetWorldPos().y + 3);
+	this->SetWorldPosZ(_player->GetWorldPos().z);
+}
+
+void Game_ui::set_im_ui()
+{
+	// 키가 알파벳, 값은 1. 회색이미지, 2. 그린이미지
+	map<char, pair<string, string>> textureMap =
+	{
+		{'q', {"q_code.png","qn_code.png"}},
+		{'w', {"w_code.png","wn_code.png"}},
+		{'e', {"e_code.png","en_code.png"}},
+		{'a', {"a_code.png","an_code.png"}},
+		{'s', {"s_code.png","sn_code.png"}},
+		{'d', {"d_code.png","dn_code.png"}}
+	};
+
+	// p1_random_letters의 이미지 설정
+		// p1_random_letters 문자를 순회함
+			// i < input_count는 판단기준
+			// 참 : 녹색이미지 ,거짓 : 회색이미지
+			// i 가 플레이어가 정확하게 입력한 문자 수보다 작은지 안 작은지
+	for (int i = 0; i < p1_random_letters.size(); i++)
+	{
+		string pos = "pos1_" + to_string(i + 1);
+		Find(pos)->texture = RESOURCE->textures.Load
+		((i < input_count) ? textureMap[p1_random_letters[i]].second : 
+			textureMap[p1_random_letters[i]].first);
+	}
+}

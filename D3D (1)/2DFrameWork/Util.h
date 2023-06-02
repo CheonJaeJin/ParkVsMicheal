@@ -23,6 +23,8 @@ namespace Util
 
 	Ray MouseToRay(Vector3 Mouse, Camera* Cam);
 
+	float LerpRotation(float radian1, float radian2, float value,OUT float& dis);
+
 	template<typename T>
 	//			3     5  
 	T Lerp(T from, T to, float value)

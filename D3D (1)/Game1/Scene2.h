@@ -4,13 +4,31 @@
 class Scene2 : public Scene
 {
 private:
+	// 신관희
+	Player* player;
+	//Player* player2;
+	Player2* player2;
+	bool isplayer;
+
+	// 천재진
+	class Game_ui* game_ui;
+	class Game_ui* game_ui2;
+
+
+
+	// 수업관련
 	Camera* Cam;
 	Grid*	grid;
-	Actor*  player;
-	Actor*  spear;
-	UI*		ui;
-	bool	isFire;
-	float   gravity;
+	//Actor*  player2;
+	Actor*  plane;
+	Actor*	dead;
+	Vector3 src, dest;
+	float   t;
+	float   dis;
+	float	srcR, destR;
+	float   tR;
+	float   disR;
+	Actor* ui;
 
 public:
 	Scene2();
@@ -22,9 +40,5 @@ public:
 	virtual void Render() override;
 	virtual void PreRender() override;
 	virtual void ResizeScreen() override;
-
-	void Animation(GameObject* root);
-
-
 };
 

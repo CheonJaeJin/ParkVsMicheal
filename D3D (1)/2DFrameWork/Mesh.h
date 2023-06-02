@@ -2,6 +2,7 @@
 class Mesh
 {
     friend class GameObject;
+    friend class Collider;
 private:
     ID3D11Buffer*           vertexBuffer;
     ID3D11Buffer*           indexBuffer;
@@ -10,11 +11,12 @@ private:
     VertexType              vertexType;
     UINT                    byteWidth;
 
-    UINT*                   indices;
-    UINT                    indexCount;
-    void*                   vertices;
-    UINT                    vertexCount;
+ 
 public:
+    UINT* indices;
+    UINT                    indexCount;
+    void* vertices;
+    UINT                    vertexCount;
     string                  file;
 public:
     Mesh();
@@ -22,5 +24,6 @@ public:
     void Set();
     void LoadFile(string file);
     void SaveFile(string file);
+    void Reset();
 };
 

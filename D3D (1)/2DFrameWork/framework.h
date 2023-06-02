@@ -102,8 +102,10 @@ extern Application App;//Extern Global
 #include "Transform.h"
 #include "Mesh.h"
 #include "Texture.h"
+#include "Collider.h"
 
 #include "DepthState.h"
+#include "BlendState.h"
 
 #include "SceneManager.h"
 #include "Dwrite.h"
@@ -129,4 +131,5 @@ extern Application App;//Extern Global
 #define SCENE		SceneManager::GetInstance()
 #define SOUND		Sound::GetInstance()
 #define DEPTH		DepthState::GetInstance()
+#define BLEND		BlendState::GetInstance()
 #define RESOURCE	ResourceManager::GetInstance()

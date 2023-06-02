@@ -4,6 +4,7 @@ GameObject::GameObject()
 {
 	type = ObType::GameObject;
 	root = nullptr;
+	collider = nullptr;
 	visible = true;
 	//mesh = make_shared<Mesh>();
 }
@@ -16,6 +17,7 @@ GameObject::~GameObject()
 {
 	mesh.reset();
 	shader.reset();
+	SafeDelete(collider);
 }
 Actor::~Actor()
 {
@@ -76,6 +78,10 @@ void GameObject::Update()
 	Transform::Update();
 
 
+	if (collider)
+		collider->Update(this);
+
+
 	for (auto it = children.begin(); it != children.end(); it++)
 		it->second->Update();
 }
@@ -97,6 +103,12 @@ void GameObject::Render()
 			D3D->GetDC()->DrawIndexed(mesh->indexCount, 0, 0);
 		}
 	}
+
+
+	if (collider)
+		collider->Render();
+
+
 	for (auto it = children.begin(); it != children.end(); it++)
 		it->second->Render();
 }
