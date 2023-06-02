@@ -30,6 +30,10 @@ void Scene2::Init()
     game_ui = Game_ui::Create();
     game_ui2 = Game_ui::Create();
 
+    //±èµÎÈ£
+    pool = SwimmingPool::Create();
+    pool->SetWorldPos(Vector3(-8.5,-4,15));
+
     //Ä«¸Ş¶ó
     Cam = Camera::Create();
     Cam->LoadFile("Cam.xml");
@@ -75,6 +79,9 @@ void Scene2::Update()
 
     //Hierarchy
     ImGui::Begin("Hierarchy");
+
+    //±èµÎÈ£
+    pool->RenderHierarchy();
 
     //ÃµÀçÁø
     game_ui->RenderHierarchy();
@@ -138,6 +145,9 @@ void Scene2::Update()
     grid->Update();
     Cam->Update();
 
+    //±èµÎÈ£
+    pool->Update();
+
     //ÃµÀçÁø
     game_ui->Update();
     game_ui2->Update();
@@ -162,7 +172,7 @@ void Scene2::LateUpdate()
 void Scene2::Render()
 {
     Camera::main->Set();
-    grid->Render();
+    //grid->Render();
 
     /*¼ö¾÷
     player2->Render();
@@ -170,7 +180,8 @@ void Scene2::Render()
     BLEND->Set(true);
     ui->Render();
     */
-
+    //±èµÎÈ£
+    pool->Render();
     //½Å°üÈñ
     if (!isplayer)// ¸ğµ¨¸µ¿ë °´Ã¼ÀÔ´Ï´Ù ½Å°æ¤¤¤¤
         dead->Render();

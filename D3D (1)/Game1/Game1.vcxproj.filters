@@ -18,6 +18,9 @@
     <ClInclude Include="Player2.h">
       <Filter>Actors</Filter>
     </ClInclude>
+    <ClInclude Include="SwimmingPool.h">
+      <Filter>Actors</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scene2.cpp">
@@ -34,6 +37,9 @@
       <Filter>Actors</Filter>
     </ClCompile>
     <ClCompile Include="Player2.cpp">
+      <Filter>Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="SwimmingPool.cpp">
       <Filter>Actors</Filter>
     </ClCompile>
   </ItemGroup>

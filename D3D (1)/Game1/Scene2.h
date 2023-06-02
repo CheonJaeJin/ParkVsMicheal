@@ -14,7 +14,8 @@ private:
 	class Game_ui* game_ui;
 	class Game_ui* game_ui2;
 
-
+	// 김두호
+	SwimmingPool* pool;
 
 	// 수업관련
 	Camera* Cam;
