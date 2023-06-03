@@ -148,14 +148,14 @@ void Player::Update()
     {
         mainState = MainState::DROWN;
     }
-    else if (INPUT->KeyDown(VK_NUMPAD4))
-    {
-        mainState = MainState::WINNER;
-    }
-    else if (INPUT->KeyDown(VK_NUMPAD5))
-    {
-        mainState = MainState::LOSER;
-    }
+   //    else if (INPUT->KeyDown(VK_NUMPAD4))
+   //    {
+   //        mainState = MainState::WINNER;
+   //    }
+   //    else if (INPUT->KeyDown(VK_NUMPAD5))
+   //    {
+   //        mainState = MainState::LOSER;
+   //    }
     //else if (INPUT->KeyDown(VK_NUMPAD6))
     //{
     //    playerstyle = !playerstyle;

@@ -11,7 +11,6 @@ private:
 
 	// 천재진
 	class Game_ui* game_ui;
-	class Game_ui* game_ui2;
 
 	// 김두호
 	SwimmingPool* pool;

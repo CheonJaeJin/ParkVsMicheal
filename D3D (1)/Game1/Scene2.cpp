@@ -28,7 +28,6 @@ void Scene2::Init()
 
     //천재진
     game_ui = Game_ui::Create();
-    game_ui2 = Game_ui::Create();
 
     //김두호
     pool = SwimmingPool::Create();
@@ -85,7 +84,6 @@ void Scene2::Update()
 
     //천재진
     game_ui->RenderHierarchy();
-    game_ui2->RenderHierarchy(); // 실험용 2생성
 
     //신관희
     if (!isplayer)// 모델링용 객체입니다 신경ㄴㄴ
@@ -150,7 +148,6 @@ void Scene2::Update()
 
     //천재진
     game_ui->Update();
-    game_ui2->Update();
 
     //신관희
     if (!isplayer) // 모델링용 객체입니다 신경ㄴㄴ
@@ -164,8 +161,7 @@ void Scene2::Update()
 void Scene2::LateUpdate()
 {
     //천재진
-    game_ui->set_pos_ui(player);
-    game_ui2->set_pos_ui(player2);
+    game_ui->set_pos_ui(player, player2);
 
 }
 
@@ -191,7 +187,6 @@ void Scene2::Render()
 
     //천재진
     game_ui->Render();
-    game_ui2->Render();
 
 }
 
