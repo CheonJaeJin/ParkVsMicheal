@@ -13,8 +13,6 @@ void Main::Init()
 {
 	SCENE->AddScene("SC1", new Scene1());
 	SCENE->ChangeScene("SC1")->Init();
-
-
 }
 
 void Main::Release()

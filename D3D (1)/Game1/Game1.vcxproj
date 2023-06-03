@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="Game_ui.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="MainScene.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Player2.h" />
     <ClInclude Include="Scene2.h" />
@@ -31,6 +32,7 @@
   <ItemGroup>
     <ClCompile Include="Game_ui.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Player2.cpp" />
     <ClCompile Include="Scene2.cpp" />

@@ -1,6 +1,5 @@
 #pragma once
 
-
 class Scene2 : public Scene
 {
 private:

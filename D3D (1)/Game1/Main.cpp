@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Main.h"
+#include "MainScene.h"
 #include "Scene2.h"
 
 Main::Main()
@@ -12,10 +13,8 @@ Main::~Main()
 
 }
 
-
 void Main::Init()
 {
-
     {
         Xml::XMLDocument* doc = new Xml::XMLDocument();
         Xml::XMLElement* ob = doc->NewElement("Root");
@@ -36,15 +35,9 @@ void Main::Init()
             Pos->SetAttribute("X", 1.0f);
             Pos->SetAttribute("Y", 10.0f);
             Pos->SetAttribute("Z", 0.0f);
-
-
         }
-
-
         doc->SaveFile("../Contents/GameObject/XMLTest.xml");
     }
-
-   
     //가져올때
     {
         Xml::XMLDocument* doc = new Xml::XMLDocument();
@@ -53,42 +46,24 @@ void Main::Init()
         Xml::XMLElement* trans;
         Xml::XMLElement* Pos;
         ob = doc->FirstChildElement();
-      
-     
+  
         trans = ob->FirstChildElement("Transform");
         Pos = trans->FirstChildElement("Position");
      
         cout << ob->Attribute("name") << endl;
         cout << Pos->FloatAttribute("X") << endl;
         cout << Pos->FloatAttribute("Y") << endl;
-
-        //ob = ob->FirstChildElement();
-
-        //ob->IntAttribute()
-
     }
 
-
-
-
-
-
-
-
-
-
-
-
     SCENE->AddScene("SC2", new Scene2());
-    SCENE->ChangeScene("SC2")->Init();
-   // Actor a ;
+    SCENE->AddScene("MC", new MainScene());
+    SCENE->ChangeScene("MC")->Init();
 }
 
 void Main::Release()
 {
     SCENE->Release();
 }
-
 
 void Main::Update()
 {
