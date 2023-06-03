@@ -136,34 +136,7 @@ void Player::Update()
     case MainState::LOSER: loser(); break; // 게임종료시 도착하지 못한 플레이어는 패배상태로
     }
 
-    if (INPUT->KeyDown(VK_NUMPAD1))
-    {
-        mainState = MainState::SWIMMING;
-    }
-    else if (INPUT->KeyDown(VK_NUMPAD2))
-    {
-        mainState = MainState::BOOSTER;
-    }
-    else if (INPUT->KeyDown(VK_NUMPAD3))
-    {
-        mainState = MainState::DROWN;
-    }
-    else if (INPUT->KeyDown(VK_NUMPAD4))
-    {
-        mainState = MainState::WINNER;
-    }
-    else if (INPUT->KeyDown(VK_NUMPAD5))
-    {
-        mainState = MainState::LOSER;
-    }
-    //else if (INPUT->KeyDown(VK_NUMPAD6))
-    //{
-    //    playerstyle = !playerstyle;
-    //}
-    else if (INPUT->KeyDown(VK_NUMPAD0))
-    {
-        isturn = !isturn; // 방향 회전시키려면 xml 파일 불러오기함
-    }
+
     if (isturn) // 턴이 true일때 로드 파일 카메라반대방향으로 출발하기때문에 Y 180도 회전되어있음
     {
         swim[0]->LoadFile("SwimIdle0turn.xml");

@@ -37,6 +37,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameObject", "GameObject", 
 		Contents\GameObject\Deadpool.xml = Contents\GameObject\Deadpool.xml
 		Contents\GameObject\Duck.xml = Contents\GameObject\Duck.xml
 		Contents\GameObject\exitbutton.xml = Contents\GameObject\exitbutton.xml
+		..\..\..\..\Desktop\D3D (1)\Contents\GameObject\game_ui(1).xml = ..\..\..\..\Desktop\D3D (1)\Contents\GameObject\game_ui(1).xml
 		Contents\GameObject\game_ui.xml = Contents\GameObject\game_ui.xml
 		Contents\GameObject\Grid.xml = Contents\GameObject\Grid.xml
 		Contents\GameObject\Human.xml = Contents\GameObject\Human.xml
