@@ -5,7 +5,7 @@
         <Rotation X="0" Y="0" Z="0"/>
     </Transform>
     <Children Size="7"/>
-    <Child0 Name="BackWall" Visible="true" ObType="0">
+    <Child0 Name="BackWall" Visible="false" ObType="0">
         <Mesh File="6.FrontWall.mesh"/>
         <Shader File="6.Cube.hlsl"/>
         <Texture File="tile.png"/>
@@ -15,7 +15,7 @@
             <Rotation X="0" Y="0" Z="0"/>
         </Transform>
         <Children Size="5"/>
-        <Child0 Name="BackWall1" Visible="true" ObType="0">
+        <Child0 Name="BackWall1" Visible="false" ObType="0">
             <Mesh File="6.FrontWall.mesh"/>
             <Shader File="6.Cube.hlsl"/>
             <Transform>
@@ -25,7 +25,7 @@
             </Transform>
             <Children Size="0"/>
         </Child0>
-        <Child1 Name="BackWall2" Visible="true" ObType="0">
+        <Child1 Name="BackWall2" Visible="false" ObType="0">
             <Mesh File="6.FrontWall.mesh"/>
             <Shader File="6.Cube.hlsl"/>
             <Texture File="tile.png"/>
@@ -36,7 +36,7 @@
             </Transform>
             <Children Size="0"/>
         </Child1>
-        <Child2 Name="BackWall3" Visible="true" ObType="0">
+        <Child2 Name="BackWall3" Visible="false" ObType="0">
             <Mesh File="6.FrontWall.mesh"/>
             <Shader File="6.Cube.hlsl"/>
             <Transform>
@@ -46,7 +46,7 @@
             </Transform>
             <Children Size="0"/>
         </Child2>
-        <Child3 Name="BackWall4" Visible="true" ObType="0">
+        <Child3 Name="BackWall4" Visible="false" ObType="0">
             <Mesh File="6.FrontWall.mesh"/>
             <Shader File="6.Cube.hlsl"/>
             <Transform>
@@ -56,7 +56,7 @@
             </Transform>
             <Children Size="0"/>
         </Child3>
-        <Child4 Name="BackWall5" Visible="true" ObType="0">
+        <Child4 Name="BackWall5" Visible="false" ObType="0">
             <Mesh File="6.FrontWall.mesh"/>
             <Shader File="6.Cube.hlsl"/>
             <Transform>
@@ -75,7 +75,7 @@
             <Scale X="0.5" Y="0.5" Z="0.5"/>
             <Rotation X="0" Y="0" Z="0"/>
         </Transform>
-        <Children Size="11"/>
+        <Children Size="12"/>
         <Child0 Name="Buoy1" Visible="true" ObType="0">
             <Mesh File="1.Sphere.mesh"/>
             <Shader File="1.Cube.hlsl"/>
@@ -246,7 +246,17 @@
             </Transform>
             <Children Size="0"/>
         </Child9>
-        <Child10 Name="Buoy9" Visible="true" ObType="0">
+        <Child10 Name="Buoy19" Visible="true" ObType="0">
+            <Mesh File="1.Sphere.mesh"/>
+            <Shader File="1.Cube.hlsl"/>
+            <Transform>
+                <Position X="0" Y="0" Z="380"/>
+                <Scale X="1" Y="1" Z="1"/>
+                <Rotation X="0" Y="0" Z="0"/>
+            </Transform>
+            <Children Size="0"/>
+        </Child10>
+        <Child11 Name="Buoy9" Visible="true" ObType="0">
             <Mesh File="1.Sphere.mesh"/>
             <Shader File="1.Cube.hlsl"/>
             <Transform>
@@ -255,7 +265,7 @@
                 <Rotation X="0" Y="0" Z="0"/>
             </Transform>
             <Children Size="0"/>
-        </Child10>
+        </Child11>
     </Child1>
     <Child2 Name="FrontWall" Visible="true" ObType="0">
         <Mesh File="6.FrontWall.mesh"/>

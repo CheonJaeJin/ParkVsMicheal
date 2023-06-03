@@ -4,7 +4,7 @@ SwimmingPool* SwimmingPool::Create(string name)
 {
 	SwimmingPool* temp = new SwimmingPool();
 	temp->LoadFile("swimmingpool3.xml");
-
+	
 	return temp;
 }
 

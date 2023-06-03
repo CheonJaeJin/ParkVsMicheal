@@ -33,6 +33,9 @@ void Scene2::Init()
     pool = SwimmingPool::Create();
     pool->SetWorldPos(Vector3(-8.5,-4,15));
 
+    pool2 = SwimmingPool2::Create();
+    pool2->SetWorldPos(Vector3(-8.5, -4, 215));
+
     //Ä«¸Ş¶ó
     Cam = Camera::Create();
     Cam->LoadFile("Cam.xml");
@@ -81,6 +84,7 @@ void Scene2::Update()
 
     //±èµÎÈ£
     pool->RenderHierarchy();
+    pool2->RenderHierarchy();
 
     //ÃµÀçÁø
     game_ui->RenderHierarchy();
@@ -146,6 +150,7 @@ void Scene2::Update()
 
     //±èµÎÈ£
     pool->Update();
+    pool2->Update();
 
     //ÃµÀçÁø
     game_ui->Update();
@@ -179,6 +184,7 @@ void Scene2::Render()
     */
     //±èµÎÈ£
     pool->Render();
+    pool2->Render();
     //½Å°üÈñ
     if (!isplayer)// ¸ğµ¨¸µ¿ë °´Ã¼ÀÔ´Ï´Ù ½Å°æ¤¤¤¤
         dead->Render();
