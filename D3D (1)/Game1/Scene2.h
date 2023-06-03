@@ -5,9 +5,13 @@ class Scene2 : public Scene
 private:
 	// 신관희
 	Player* player;
-	//Player* player2;
 	Player2* player2;
 	bool isplayer;
+
+	UI* exitbutton;
+	UI* pausebutton;
+	UI* playbutton;
+	bool ismenu;
 
 	// 천재진
 	class Game_ui* game_ui;
@@ -17,6 +21,7 @@ private:
 
 	// 수업관련
 	Camera* Cam;
+	Camera* Cam2;
 	Grid*	grid;
 	//Actor*  player2;
 	Actor*  plane;

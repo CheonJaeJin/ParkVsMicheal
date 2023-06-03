@@ -8,11 +8,11 @@ private:
     UINT                                framePerSecond;
     UINT                                framePerSecondCount;
     float                               framePerSecondTimeElapsed;
-    float                               deltaTime;
-    float                               deltaScaleTime;
     float                               worldTime;
    
 public:
+    float                               deltaTime;
+    float                               deltaScaleTime;
     Timer();
     bool    GetTick(float& time, float interval);
     void    Chronometry(UINT lock = 60);
