@@ -18,6 +18,7 @@ private:
 
 	// 김두호
 	SwimmingPool* pool;
+	SwimmingPool2* pool2;
 
 	// 수업관련
 	Camera* Cam;

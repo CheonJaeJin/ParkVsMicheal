@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  BinaryFile.cpp
   BlendState.cpp
   Camera.cpp
@@ -83,3 +84,6 @@ C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\2DFrameWork\Util.cpp(58): m
               _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>
           ]
   2DFrameWork.vcxproj -> C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Build\2DFrameWork\2DFrameWork.lib
+=======
+﻿  2DFrameWork.vcxproj -> C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Build\2DFrameWork\2DFrameWork.lib
+>>>>>>> 3356f08f673593f541c47dd6b5958518d6ca2941

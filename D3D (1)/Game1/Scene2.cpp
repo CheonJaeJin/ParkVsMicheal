@@ -61,6 +61,20 @@ void Scene2::Init()
     pool = SwimmingPool::Create();
     pool->SetWorldPos(Vector3(-8.5,-4,15));
 
+<<<<<<< HEAD
+=======
+    pool2 = SwimmingPool2::Create();
+    pool2->SetWorldPos(Vector3(-8.5, -4, 215));
+
+    //카메라
+    Cam = Camera::Create();
+    Cam->LoadFile("Cam.xml");
+    Camera::main = Cam;
+    Cam->width = App.GetWidth();
+    Cam->height = App.GetHeight();
+    Cam->viewport.width = App.GetWidth();
+    Cam->viewport.height = App.GetHeight();
+>>>>>>> 3356f08f673593f541c47dd6b5958518d6ca2941
     grid =  Grid::Create();
 
     /*수업
@@ -112,6 +126,7 @@ void Scene2::Update()
 
     //김두호
     pool->RenderHierarchy();
+    pool2->RenderHierarchy();
 
     //천재진
     game_ui->RenderHierarchy();
@@ -129,6 +144,7 @@ void Scene2::Update()
     Cam2->RenderHierarchy();
     Cam->RenderHierarchy();
     grid->RenderHierarchy();
+    
     /*수업
     player2->RenderHierarchy();
     plane->RenderHierarchy();
@@ -181,6 +197,7 @@ void Scene2::Update()
 
     //김두호
     pool->Update();
+    pool2->Update();
 
     //천재진
     game_ui->Update();
@@ -266,6 +283,7 @@ void Scene2::Render()
     */
     //김두호
     pool->Render();
+    pool2->Render();
     //신관희
     if (!isplayer)// 모델링용 객체입니다 신경ㄴㄴ
         dead->Render();
