@@ -22,7 +22,6 @@ Game_ui::Game_ui()
 
 	input_count = 0;
 
-	game_start = false;
 	/// <summary>
 	/// ///////////////////////////
 	/// </summary>
@@ -37,7 +36,10 @@ Game_ui::Game_ui()
 	p2_random_letters = make_random_p2(p2_letters, 6);
 
 	input_count2 = 0;
-
+	/// <summary>
+	/// ///////////////////////
+	/// </summary>
+	game_start = false;
 }
 
 Game_ui::~Game_ui()
@@ -158,11 +160,11 @@ void Game_ui::set_pos_ui(Actor* _player1, Actor* _player2)
 
 	this->Find("player1_ui")->SetWorldPosX(_player1->GetWorldPos().x);
 	this->Find("player1_ui")->SetWorldPosY(_player1->GetWorldPos().y + 3.0f);
-	this->Find("player1_ui")->SetWorldPosZ(_player1->GetWorldPos().x);
+	this->Find("player1_ui")->SetWorldPosZ(_player1->GetWorldPos().z);
 
 	this->Find("player2_ui")->SetWorldPosX(_player2->GetWorldPos().x);
 	this->Find("player2_ui")->SetWorldPosY(_player2->GetWorldPos().y + 3.0f);
-	this->Find("player2_ui")->SetWorldPosZ(_player2->GetWorldPos().x);
+	this->Find("player2_ui")->SetWorldPosZ(_player2->GetWorldPos().z);
 }
 
 void Game_ui::set_im_ui()
@@ -343,7 +345,7 @@ void Game_ui::p2_element_update()
 		// 모든 입력이 맞을 경우
 			// 1. 시퀸스 재설정
 			// 2. 부스터 모션 나오가 하는 불 값 둘수 있음
-		p2_random_letters = make_random_p2(p1_letters, 6);
+		p2_random_letters = make_random_p2(p2_letters, 6);
 		input_count2 = 0;
 
 	}

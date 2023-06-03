@@ -29,13 +29,13 @@ public:
 	(char*& _p1_letter, int size);
 
 	vector<char>	 make_random_p2
-	(char*& _p1_letter, int size);
+	(char*& _p2_letter, int size);
 
 	bool			 checked_input
 	(const vector<char>& computerLetters, const vector<char>& playerInput, int inputCount);
 
 
-	void			set_pos_ui(Actor* _player, Actor* _player2);
+	void			set_pos_ui(Actor* _player1, Actor* _player2);
 	void			set_im_ui();
 	void			set_im_ui2();
 
