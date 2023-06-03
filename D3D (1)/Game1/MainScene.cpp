@@ -23,12 +23,25 @@ void MainScene::Init()
     //UI
     ui = UI::Create();
     ui->LoadFile("Background.xml");
+    ui2 = UI::Create();
+    ui2->LoadFile("Background2.xml");
+    ui3 = UI::Create();
+    ui3->LoadFile("Background3.xml");
 
     button = UI::Create();
     button->LoadFile("Button.xml");
 
     logo = UI::Create();
     logo->LoadFile("Logo.xml");
+    logomovex = 1.5;
+    logomoving = false;
+
+    park = UI::Create();
+    park->LoadFile("park.xml");
+    VS = UI::Create();
+    VS->LoadFile("VS.xml");
+    pelp = UI::Create();
+    pelp->LoadFile("pelp.xml");
 }
 
 void MainScene::Release()
@@ -56,7 +69,12 @@ void MainScene::Update()
     ImGui::Begin("Hierarchy"); //Hierarchy 시작
     Cam->RenderHierarchy();
     ui->RenderHierarchy();
+    ui2->RenderHierarchy();
+    ui3->RenderHierarchy();
     logo->RenderHierarchy();
+    park->RenderHierarchy();
+    VS->RenderHierarchy();
+    pelp->RenderHierarchy();
     button->RenderHierarchy();
     ImGui::End(); //Hierarchy 끝
 
@@ -76,12 +94,41 @@ void MainScene::Update()
         button->scale.x = 0.5;
         button->scale.y = 0.3;
     }
+    if (logomovex < -1.5f)
+    {
+        logomovex = 1.5f;
+    }
+    logomovex -= DELTA*0.2f;
+    logo->SetWorldPosX(logomovex);
+    if (!logomoving)
+    {
+        if (logo->GetWorldPos().y < -0.3)
+        {
+            logomoving = true;
+        }
+        logomovey -= DELTA * 0.1f;
+        logo->SetWorldPosY(logomovey);
+    }
+    else if (logomoving)
+    {
+        if (logo->GetWorldPos().y > -0.2)
+        {
+            logomoving = false;
+        }
+        logomovey += DELTA * 0.1f;
+        logo->SetWorldPosY(logomovey);
+    }
 
     //업데이트
     Cam->Update();
     ui->Update();
-    button->Update();
+    ui2->Update();
     logo->Update();
+    ui3->Update();
+    button->Update();
+    park->Update();
+    VS->Update();
+    pelp->Update();
 }
 
 void MainScene::LateUpdate()
@@ -95,9 +142,16 @@ void MainScene::Render()
     Camera::main->Set();
 
     //렌더
+    BLEND->Set(true);
     ui->Render();
-    button->Render();
+    park->Render();
+    pelp->Render();
+    VS->Render();
+    ui3->Render();
     logo->Render();
+    ui2->Render();
+    button->Render();
+
 }
 
 void MainScene::PreRender()

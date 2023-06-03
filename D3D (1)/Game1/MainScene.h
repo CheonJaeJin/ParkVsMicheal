@@ -5,9 +5,16 @@ class MainScene : public Scene
 private:
 	Camera* Cam;
 	UI* ui;
+	UI* ui2;
+	UI* ui3;
 	UI* button;
 	UI* logo;
-
+	UI* park;
+	UI* pelp;
+	UI* VS;
+	float logomovex;
+	float logomovey;
+	bool logomoving;
 
 public:
 	MainScene();
