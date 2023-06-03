@@ -94,6 +94,7 @@ void Scene2::Update()
 
     Cam->RenderHierarchy();
     grid->RenderHierarchy();
+    
     /*¼ö¾÷
     player2->RenderHierarchy();
     plane->RenderHierarchy();

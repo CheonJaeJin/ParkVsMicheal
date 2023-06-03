@@ -3,7 +3,7 @@
 SwimmingPool* SwimmingPool::Create(string name)
 {
 	SwimmingPool* temp = new SwimmingPool();
-	temp->LoadFile("swimmingpool2.xml");
+	temp->LoadFile("swimmingpool3.xml");
 
 	return temp;
 }
