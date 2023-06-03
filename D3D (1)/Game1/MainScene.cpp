@@ -34,7 +34,6 @@ void MainScene::Init()
     logo = UI::Create();
     logo->LoadFile("Logo.xml");
     logomovex = 1.5;
-    logomoving = false;
 
     park = UI::Create();
     park->LoadFile("park.xml");
@@ -61,6 +60,7 @@ void MainScene::Update()
     Cam->rotation.x = 0;
     Cam->rotation.y = 0;
     Cam->rotation.z = 0;
+    Cam->Update();
 
     //debug
     ImGui::Text("FPS: %d", TIMER->GetFramePerSecond());
@@ -100,27 +100,8 @@ void MainScene::Update()
     }
     logomovex -= DELTA*0.2f;
     logo->SetWorldPosX(logomovex);
-    if (!logomoving)
-    {
-        if (logo->GetWorldPos().y < -0.3)
-        {
-            logomoving = true;
-        }
-        logomovey -= DELTA * 0.1f;
-        logo->SetWorldPosY(logomovey);
-    }
-    else if (logomoving)
-    {
-        if (logo->GetWorldPos().y > -0.2)
-        {
-            logomoving = false;
-        }
-        logomovey += DELTA * 0.1f;
-        logo->SetWorldPosY(logomovey);
-    }
 
     //업데이트
-    Cam->Update();
     ui->Update();
     ui2->Update();
     logo->Update();

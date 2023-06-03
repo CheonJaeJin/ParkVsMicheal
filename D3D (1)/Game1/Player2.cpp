@@ -102,7 +102,7 @@ Player2* Player2::Create(string name)
     player->playerstyle = true;
 
     // 플레이어 수영 속도 설정용 변수
-    player->swimspeed = 0.0f; // 권장 스피드 5.0f
+    player->swimspeed = 5.0f; // 권장 스피드 5.0f
     player->boostspeed = 0.0f; // 권장 스피드 10.0f
     player->mainState = MainState::IDLE;
 
@@ -154,14 +154,14 @@ void Player2::Update()
     {
         mainState = MainState::DROWN;
     }
-   //   else if (INPUT->KeyDown(VK_NUMPAD4))
-   //   {
-   //       mainState = MainState::WINNER;
-   //   }
-   //   else if (INPUT->KeyDown(VK_NUMPAD5))
-   //   {
-   //       mainState = MainState::LOSER;
-   //   }
+    else if (INPUT->KeyDown(VK_NUMPAD4))
+    {
+        mainState = MainState::WINNER;
+    }
+    else if (INPUT->KeyDown(VK_NUMPAD5))
+    {
+        mainState = MainState::LOSER;
+    }
     //else if (INPUT->KeyDown(VK_NUMPAD6))
     //{
     //    playerstyle = !playerstyle;

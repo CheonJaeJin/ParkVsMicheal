@@ -12,9 +12,9 @@ private:
 	UI* park;
 	UI* pelp;
 	UI* VS;
+
+
 	float logomovex;
-	float logomovey;
-	bool logomoving;
 
 public:
 	MainScene();

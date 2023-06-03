@@ -3,7 +3,6 @@ class SwimmingPool : public Actor
 {
 public:
 	static SwimmingPool* Create(string name = "SwimmingPool");
-	
 
 private:
 	SwimmingPool();

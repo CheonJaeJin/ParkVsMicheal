@@ -2,11 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-<<<<<<< HEAD
       <FullPath>C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Build\Game1.exe</FullPath>
-=======
-      <FullPath>C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Build\Game1.exe</FullPath>
->>>>>>> 3356f08f673593f541c47dd6b5958518d6ca2941
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

@@ -28,7 +28,6 @@
     <ClInclude Include="Solar.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SwimmingPool.h" />
-    <ClInclude Include="SwimmingPool2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game_ui.cpp" />
@@ -39,7 +38,6 @@
     <ClCompile Include="Scene2.cpp" />
     <ClCompile Include="Solar.cpp" />
     <ClCompile Include="SwimmingPool.cpp" />
-    <ClCompile Include="SwimmingPool2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

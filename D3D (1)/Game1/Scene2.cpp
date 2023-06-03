@@ -53,28 +53,15 @@ void Scene2::Init()
     Cam2->viewport.height = App.GetHeight();
     Cam2->viewport.x = App.GetHalfWidth();
 
-
     //천재진
     game_ui = Game_ui::Create();
+    game_ui2 = Game_ui::Create();
 
     //김두호
     pool = SwimmingPool::Create();
     pool->SetWorldPos(Vector3(-8.5,-4,15));
 
-<<<<<<< HEAD
-=======
-    pool2 = SwimmingPool2::Create();
-    pool2->SetWorldPos(Vector3(-8.5, -4, 215));
 
-    //카메라
-    Cam = Camera::Create();
-    Cam->LoadFile("Cam.xml");
-    Camera::main = Cam;
-    Cam->width = App.GetWidth();
-    Cam->height = App.GetHeight();
-    Cam->viewport.width = App.GetWidth();
-    Cam->viewport.height = App.GetHeight();
->>>>>>> 3356f08f673593f541c47dd6b5958518d6ca2941
     grid =  Grid::Create();
 
     /*수업
@@ -92,6 +79,7 @@ void Scene2::Init()
 
 void Scene2::Release()
 {
+    //Cam->SaveFile("Cam.xml");
     Cam->Release();
     Cam2->Release();
 }
@@ -103,19 +91,25 @@ void Scene2::Update()
     //Camera::main->height = App.GetHeight();
     //Camera::main->viewport.width = App.GetWidth();
     //Camera::main->viewport.height = App.GetHeight();
+
     Cam->SetWorldPosX(player->GetWorldPos().x);
-    Cam->SetWorldPosY(player->GetWorldPos().y + 10);
-    Cam->SetWorldPosZ(player->GetWorldPos().z - 10);
+    Cam->SetWorldPosY(player->GetWorldPos().y+10);
+    Cam->SetWorldPosZ(player->GetWorldPos().z-10);
     Cam->rotation.x = 35 * TORADIAN;
     Cam->rotation.y = 0;
     Cam->rotation.z = 0;
+    //Cam->viewport.width = App.GetHalfWidth();
+    //Cam->viewport.height = App.GetHalfHeight();
 
     Cam2->SetWorldPosX(player2->GetWorldPos().x);
-    Cam2->SetWorldPosY(player2->GetWorldPos().y + 10);
-    Cam2->SetWorldPosZ(player2->GetWorldPos().z - 10);
+    Cam2->SetWorldPosY(player2->GetWorldPos().y+10);
+    Cam2->SetWorldPosZ(player2->GetWorldPos().z-10);
     Cam2->rotation.x = 35 * TORADIAN;
     Cam2->rotation.y = 0;
     Cam2->rotation.z = 0;
+    //Cam2->viewport.width = App.GetHalfWidth();
+    //Cam2->viewport.height = App.GetHalfHeight();
+
     Camera::ControlMainCam();
 
     //debug
@@ -126,10 +120,10 @@ void Scene2::Update()
 
     //김두호
     pool->RenderHierarchy();
-    pool2->RenderHierarchy();
 
     //천재진
     game_ui->RenderHierarchy();
+    game_ui2->RenderHierarchy(); // 실험용 2생성
 
     //신관희
     if (!isplayer)// 모델링용 객체입니다 신경ㄴㄴ
@@ -144,7 +138,6 @@ void Scene2::Update()
     Cam2->RenderHierarchy();
     Cam->RenderHierarchy();
     grid->RenderHierarchy();
-    
     /*수업
     player2->RenderHierarchy();
     plane->RenderHierarchy();
@@ -195,14 +188,16 @@ void Scene2::Update()
     Cam->Update();
     Cam2->Update();
 
+
     //김두호
     pool->Update();
-    pool2->Update();
 
     //천재진
     game_ui->Update();
+    game_ui2->Update();
 
     //신관희
+
     if (pausebutton->MouseOver())
     {
         pausebutton->scale.x = 0.25;
@@ -243,7 +238,7 @@ void Scene2::Update()
         {
             ismenu = false;
             // 타이머클래스 멤버 변수 두개 Public으로 이동!
-            TIMER->deltaScaleTime = TIMER->deltaTime * App.deltaScale;
+            TIMER->deltaScaleTime = TIMER->deltaTime * App.deltaScale; 
         }
     }
     else if (!playbutton->MouseOver())
@@ -254,6 +249,7 @@ void Scene2::Update()
     exitbutton->Update();
     pausebutton->Update();
     playbutton->Update();
+
 
     if (!isplayer) // 모델링용 객체입니다 신경ㄴㄴ
         dead->Update();
@@ -266,7 +262,8 @@ void Scene2::Update()
 void Scene2::LateUpdate()
 {
     //천재진
-    game_ui->set_pos_ui(player, player2);
+    game_ui->set_pos_ui(player);
+    game_ui2->set_pos_ui(player2);
 
 }
 
@@ -283,7 +280,6 @@ void Scene2::Render()
     */
     //김두호
     pool->Render();
-    pool2->Render();
     //신관희
     if (!isplayer)// 모델링용 객체입니다 신경ㄴㄴ
         dead->Render();
@@ -292,17 +288,12 @@ void Scene2::Render()
         player->Render();
         player2->Render();
     }
-    //pausebutton->Render();
-    //if (ismenu)
-    //{
-    //    exitbutton->Render();
-    //    playbutton->Render();
-    //}
 
     //천재진
     game_ui->Render();
+    game_ui2->Render();
 
-    Cam2->Set();// 캠2셋한다음 모두다 렌더한번더해야함!
+    Cam2->Set();
     pool->Render();
     if (!isplayer)// 모델링용 객체입니다 신경ㄴㄴ
         dead->Render();
@@ -319,7 +310,10 @@ void Scene2::Render()
         playbutton->Render();
     }
     game_ui->Render();
+    game_ui2->Render();
+
 }
+
 
 void Scene2::PreRender()
 {
