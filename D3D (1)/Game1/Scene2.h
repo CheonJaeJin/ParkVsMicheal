@@ -51,6 +51,7 @@ private:
 
 	bool	game_start;
 	bool	start_swim;
+
 	int 	game_start_timer;
 
 

@@ -67,12 +67,12 @@ void Game_ui::Update()
 	}
 	if (evnet_start)
 	{
-		if (event_cycle_time > 15.0f)
+		if (event_cycle_time > 10.0f)
 		{
 			event_cycle_time = 0.0f;
-			event_limit_time = 8.0f;
+			event_limit_time = 4.0f;
 		}
-		if (event_limit_time == 8.0f)
+		if (event_limit_time == 4.0f)
 		{
 			player1_bust = false;
 			player2_bust = false;

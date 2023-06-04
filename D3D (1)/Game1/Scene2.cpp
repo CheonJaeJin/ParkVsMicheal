@@ -146,7 +146,7 @@ void Scene2::Update()
 
 
 
-    if (game_start_timer == 0)
+    if (game_start_timer == 200)
     {
         start_swim = true;
         if (start_swim)
@@ -158,14 +158,14 @@ void Scene2::Update()
         game_start = true;
 
     }
-    if (game_start_timer < -6.0);
+    if (game_start_timer < 2)
     {
         game_ui->evnet_start = true;
         game_logic();
     }
 
-    //cout << "스타트 타이머 : " << game_start_timer << endl;
-    cout << player2->GetWorldPos().z << endl;
+    cout << "스타트 타이머 : " << game_start_timer << endl;
+    // cout << player2->GetWorldPos().z << endl;
 
     // turn_point 에도착하면 플레이어 회전
     if (player->GetWorldPos().z > turn_point) 

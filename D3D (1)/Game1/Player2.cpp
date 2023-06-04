@@ -335,7 +335,7 @@ void Player2::drown()  // 커맨드입력 실패상태일때 애니매이션
             if (drowncount == 1)
             {
                 drowncount = 0;
-                position.y = playerypos; // 다시수영상태로 돌릴때 저장된높이로 세팅해준다.
+                position.y = 0; // 다시수영상태로 돌릴때 저장된높이로 세팅해준다.
                 mainState = MainState::SWIMMING;
             }
         }
