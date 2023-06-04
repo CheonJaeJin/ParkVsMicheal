@@ -12,7 +12,13 @@ private:
 	UI* exitbutton;
 	UI* pausebutton;
 	UI* playbutton;
+	UI* cam1pause;
+	UI* cam2pause;
 	bool ismenu;
+	bool isstop;
+	int isstoptime;
+
+
 	// Ä«¸Þ¶ó
 	Camera* Cam;
 	Camera* Cam2;

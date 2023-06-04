@@ -32,8 +32,13 @@ void Scene2::Init()
     pausebutton->LoadFile("pausebutton.xml");
     playbutton = UI::Create();
     playbutton->LoadFile("playbutton.xml");
+    cam1pause = UI::Create();
+    cam1pause->LoadFile("campause1.xml");
+    cam2pause = UI::Create();
+    cam2pause->LoadFile("campause2.xml");
     ismenu = false;
-
+    isstop = false;
+    isstoptime = 0;
 
     //카메라
     Cam = Camera::Create();
@@ -122,6 +127,8 @@ void Scene2::Update()
     exitbutton->RenderHierarchy();
     pausebutton->RenderHierarchy();
     playbutton->RenderHierarchy();
+    cam1pause->RenderHierarchy();
+    cam2pause->RenderHierarchy();
     Cam2->RenderHierarchy();
     Cam->RenderHierarchy();
     grid->RenderHierarchy();
@@ -143,11 +150,10 @@ void Scene2::Update()
     game_ui->Update();
 
     //신관희
-
     if (pausebutton->MouseOver())
     {
-        pausebutton->scale.x = 0.25;
-        pausebutton->scale.y = 0.25;
+        pausebutton->scale.x = 0.35;
+        pausebutton->scale.y = 0.20;
         if (INPUT->KeyDown(VK_LBUTTON))
         {
             ismenu = true;
@@ -155,17 +161,23 @@ void Scene2::Update()
     }
     else if (!pausebutton->MouseOver())
     {
-        pausebutton->scale.x = 0.2;
-        pausebutton->scale.y = 0.2;
+        pausebutton->scale.x = 0.3;
+        pausebutton->scale.y = 0.15;
     }
     if (ismenu)
     {
+        isstoptime++;
+        //cout << isstoptime << endl;
+        if (isstoptime%100 == 50)
+        {
+            isstop = !isstop;
+        }
         TIMER->deltaScaleTime = 0;
     }
     if (exitbutton->MouseOver())
     {
-        exitbutton->scale.x = 0.55;
-        exitbutton->scale.y = 0.35;
+        exitbutton->scale.x = 0.35;
+        exitbutton->scale.y = 0.20;
         if (INPUT->KeyDown(VK_LBUTTON))
         {
             SCENE->ChangeScene("MC")->Init();
@@ -173,28 +185,30 @@ void Scene2::Update()
     }
     else if (!exitbutton->MouseOver())
     {
-        exitbutton->scale.x = 0.5;
-        exitbutton->scale.y = 0.3;
+        exitbutton->scale.x = 0.3;
+        exitbutton->scale.y = 0.15;
     }
     if (playbutton->MouseOver())
     {
-        playbutton->scale.x = 0.55;
-        playbutton->scale.y = 0.35;
+        playbutton->scale.x = 0.35;
+        playbutton->scale.y = 0.20;
         if (INPUT->KeyDown(VK_LBUTTON))
         {
             ismenu = false;
             // 타이머클래스 멤버 변수 두개 Public으로 이동!
-            TIMER->deltaScaleTime = TIMER->deltaTime * App.deltaScale; 
+            TIMER->deltaScaleTime = TIMER->deltaTime * App.deltaScale;
         }
     }
     else if (!playbutton->MouseOver())
     {
-        playbutton->scale.x = 0.5;
-        playbutton->scale.y = 0.3;
+        playbutton->scale.x = 0.3;
+        playbutton->scale.y = 0.15;
     }
     exitbutton->Update();
     pausebutton->Update();
     playbutton->Update();
+    cam1pause->Update();
+    cam2pause->Update();
 
 
     if (!isplayer) // 모델링용 객체입니다 신경ㄴㄴ
@@ -226,7 +240,13 @@ void Scene2::Render()
         player->Render();
         player2->Render();
     }
-
+    if (ismenu)
+    {
+        if (isstop)
+        {
+            cam1pause->Render();
+        }
+    }
     game_ui->Render();
 
     Cam2->Set();
@@ -247,6 +267,10 @@ void Scene2::Render()
     {
         exitbutton->Render();
         playbutton->Render();
+        if (isstop)
+        {
+            cam2pause->Render();
+        }
     }
     game_ui->Render();
 
