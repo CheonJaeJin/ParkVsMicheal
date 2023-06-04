@@ -2,7 +2,7 @@
 
 Player* Player::Create(string name)
 {
-	Player* player = new Player();
+    Player* player = new Player();
     player->LoadFile("Swim.xml");
 
 
@@ -13,7 +13,7 @@ Player* Player::Create(string name)
     player->swim[1]->Update();
     player->swim[0]->LoadFile("SwimIdle0.xml");
     player->swim[1]->LoadFile("SwimIdle1.xml");
-    
+
     // SWIMMING & BOOSTER 상태용
     player->swim[2] = Actor::Create();
     player->swim[2]->Update();
@@ -103,11 +103,11 @@ Player* Player::Create(string name)
     player->playerstyle = true;
 
     // 플레이어 수영 속도 설정용 변수
-    player->swimspeed = 0.0f; // 권장 스피드 5.0f
-    player->boostspeed = 0.0f; // 권장 스피드 10.0f
+    player->swimspeed = 5.0f; // 권장 스피드 5.0f
+    player->boostspeed = 10.0f; // 권장 스피드 10.0f
     player->mainState = MainState::IDLE;
 
-	return player;
+    return player;
 }
 
 Player::Player()
@@ -128,12 +128,18 @@ void Player::Update()
 
     switch (mainState) // 캐릭터 상태별로 함수를 불러온다
     {
-    case MainState::IDLE: idle(); break; // 게임 시작 전 기본상태, 혹은 대기중인상태
-    case MainState::SWIMMING: swimming(); break; // 게임 시작직후 기본 수영상태
-    case MainState::BOOSTER: booster(); break; // 커맨드 입력 성공시 부스터 상태로
-    case MainState::DROWN: drown(); break; // 커맨드 입력 실패시 멈춰서 허우적대는 상태로
-    case MainState::WINNER: winner(); break; // 게임종료시 먼저 도착한 플레이어는 승리상태로
-    case MainState::LOSER: loser(); break; // 게임종료시 도착하지 못한 플레이어는 패배상태로
+    case MainState::IDLE: idle();
+        break; // 게임 시작 전 기본상태, 혹은 대기중인상태
+    case MainState::SWIMMING: swimming();
+        break; // 게임 시작직후 기본 수영상태
+    case MainState::BOOSTER: booster();
+        break; // 커맨드 입력 성공시 부스터 상태로
+    case MainState::DROWN: drown();
+        break; // 커맨드 입력 실패시 멈춰서 허우적대는 상태로
+    case MainState::WINNER: winner();
+        break; // 게임종료시 먼저 도착한 플레이어는 승리상태로
+    case MainState::LOSER: loser();
+        break; // 게임종료시 도착하지 못한 플레이어는 패배상태로
     }
 
 
@@ -164,16 +170,16 @@ void Player::Update()
         swim[9]->LoadFile("SwimDrown3.xml");
     }
 
-	Actor::Update();
+    Actor::Update();
 }
 
 void Player::Release()
 {
-	for (auto it = children.begin(); it != children.end(); it++)
-	{
-		SafeRelease(it->second);
-	}
-	delete this;
+    for (auto it = children.begin(); it != children.end(); it++)
+    {
+        SafeRelease(it->second);
+    }
+    delete this;
 }
 
 void Player::Animation(GameObject* root) // 애니매이션 관련 함수, 위치보간x 각도보간.
@@ -188,7 +194,7 @@ void Player::Animation(GameObject* root) // 애니매이션 관련 함수, 위치보간x 각도
             Quaternion::CreateFromYawPitchRoll(_dest->rotation.y, _dest->rotation.x, _dest->rotation.z)
             , t));
     //root->rotation = Util::Lerp(_src->rotation, _dest->rotation, t);
-    for (auto it = root->children.begin();it != root->children.end(); it++)
+    for (auto it = root->children.begin(); it != root->children.end(); it++)
     {
         Animation(it->second);
     }

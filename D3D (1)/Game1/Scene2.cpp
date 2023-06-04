@@ -9,7 +9,7 @@ Scene2::Scene2()
 
 Scene2::~Scene2()
 {
- 
+
 }
 
 void Scene2::Init()
@@ -63,10 +63,15 @@ void Scene2::Init()
 
     //김두호
     pool = SwimmingPool::Create();
-    pool->SetWorldPos(Vector3(-8.5,-4,15));
+    pool->SetWorldPos(Vector3(-8.5, -4, 15));
 
-    grid =  Grid::Create();
+    // 게임 스타트 
+    game_start = false;
+    start_swim = false;
+    game_start_timer = 500;
 
+
+    grid = Grid::Create();
 
 }
 
@@ -134,11 +139,40 @@ void Scene2::Update()
     grid->RenderHierarchy();
 
     ImGui::End();
+    //////////////////////////////////////////////////////////
+    game_start_timer -= DELTA;
 
 
 
-  
+    if (game_start_timer == 0)
+    {
+        start_swim = true;
+        if (start_swim)
+        {
+            player->mainState = MainState::SWIMMING;
+            player2->mainState = MainState::SWIMMING;
+            start_swim = false;
+        }
+        game_start = true;
 
+    }
+    if (game_start_timer < -6.0);
+    {
+        game_ui->evnet_start = true;
+        game_logic();
+    }
+
+    cout << "스타트 타이머 : " << game_start_timer << endl;
+
+
+
+
+
+
+
+    /// <summary>
+    /// /////////////////////////////////////////////////////////////////////////////
+    /// </summary>
     grid->Update();
     Cam->Update();
     Cam2->Update();
@@ -171,7 +205,7 @@ void Scene2::Update()
     if (ismenu)
     {
         isstoptime++;
-        if (isstoptime%100 == 50)
+        if (isstoptime % 100 == 50)
         {
             isstop = !isstop;
         }
@@ -234,7 +268,6 @@ void Scene2::LateUpdate()
     }
 
 }
-
 void Scene2::Render()
 {
     Camera::main->Set();
@@ -288,12 +321,9 @@ void Scene2::Render()
     }
 
 }
-
-
 void Scene2::PreRender()
 {
 }
-
 void Scene2::ResizeScreen()
 {
     // Cam->width = App.GetWidth();
@@ -305,4 +335,34 @@ void Scene2::ResizeScreen()
     // Cam2->height = App.GetHeight();
     // Cam2->viewport.width = App.GetWidth();
     // Cam2->viewport.height = App.GetHeight();
+}
+void Scene2::game_logic()
+{
+    if (game_start)
+    {
+
+        if (game_ui->player1_bust == true)
+        {
+            player->mainState = MainState::BOOSTER;
+        }
+        else if (game_ui->player1_drown == true)
+        {
+            player->mainState = MainState::DROWN;
+        }
+        if (game_ui->player2_bust == true)
+        {
+            player2->mainState = MainState::BOOSTER;
+
+        }
+        else if (game_ui->player2_drown == true)
+        {
+            player2->mainState = MainState::DROWN;
+        }
+    }
+
+}
+
+void Scene2::game_manager()
+{
+
 }

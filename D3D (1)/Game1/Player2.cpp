@@ -2,7 +2,7 @@
 
 Player2* Player2::Create(string name)
 {
-	Player2* player = new Player2();
+    Player2* player = new Player2();
     player->LoadFile("Swim2.xml");
 
     // IDLE 상태용
@@ -12,7 +12,7 @@ Player2* Player2::Create(string name)
     player->swim2[1]->Update();
     player->swim2[0]->LoadFile("SwimIdle0.xml");
     player->swim2[1]->LoadFile("SwimIdle1.xml");
-    
+
     // SWIMMING & BOOSTER 상태용
     player->swim2[2] = Actor::Create();
     player->swim2[2]->Update();
@@ -103,10 +103,10 @@ Player2* Player2::Create(string name)
 
     // 플레이어 수영 속도 설정용 변수
     player->swimspeed = 5.0f; // 권장 스피드 5.0f
-    player->boostspeed = 0.0f; // 권장 스피드 10.0f
+    player->boostspeed = 10.0f; // 권장 스피드 10.0f
     player->mainState = MainState::IDLE;
 
-	return player;
+    return player;
 }
 
 Player2::Player2()
@@ -124,7 +124,7 @@ void Player2::Update()
     //    texture->LoadFile("swim.png");
     //else if (!playerstyle) // 흑인 스타일
     //    texture->LoadFile("swim2.png");
-     
+
     //Find("Head")->texture->LoadFile("swim2.png");
     //Find("BodyMesh")->texture->LoadFile("swim2.png");
     //Find("LeftArm")->texture->LoadFile("swim2.png");
@@ -142,7 +142,7 @@ void Player2::Update()
     case MainState::LOSER: loser(); break; // 게임종료시 도착하지 못한 플레이어는 패배상태로
     }
 
- 
+
 
     if (isturn) // 턴이 true일때 로드 파일 카메라반대방향으로 출발하기때문에 Y 180도 회전되어있음
     {
@@ -171,16 +171,16 @@ void Player2::Update()
         swim2[9]->LoadFile("SwimDrown3.xml");
     }
 
-	Actor::Update();
+    Actor::Update();
 }
 
 void Player2::Release()
 {
-	for (auto it = children.begin(); it != children.end(); it++)
-	{
-		SafeRelease(it->second);
-	}
-	delete this;
+    for (auto it = children.begin(); it != children.end(); it++)
+    {
+        SafeRelease(it->second);
+    }
+    delete this;
 }
 
 void Player2::Animation(GameObject* root) // 애니매이션 관련 함수, 위치보간x 각도보간.
@@ -195,7 +195,7 @@ void Player2::Animation(GameObject* root) // 애니매이션 관련 함수, 위치보간x 각�
             Quaternion::CreateFromYawPitchRoll(_dest->rotation.y, _dest->rotation.x, _dest->rotation.z)
             , t));
     //root->rotation = Util::Lerp(_src->rotation, _dest->rotation, t);
-    for (auto it = root->children.begin();it != root->children.end(); it++)
+    for (auto it = root->children.begin(); it != root->children.end(); it++)
     {
         Animation(it->second);
     }

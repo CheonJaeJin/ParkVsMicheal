@@ -20,7 +20,14 @@ public:
 	float			event_limit_time;
 
 public:
-	bool			can_bust;
+	bool			player1_bust;
+	bool			player2_bust;
+
+	bool			player1_drown;
+	bool			player2_drown;
+
+
+
 
 private:
 	Game_ui();

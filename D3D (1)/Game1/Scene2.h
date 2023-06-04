@@ -26,16 +26,15 @@ private:
 
 	// 천재진
 	class Game_ui* game_ui;
-	class Game_ui* game_ui2;
 
 	// 김두호
 	SwimmingPool* pool;
 
 	// 수업관련
-	Grid*	grid;
+	Grid* grid;
 	//Actor*  player2;
-	Actor*  plane;
-	Actor*	dead;
+	Actor* plane;
+	Actor* dead;
 	Vector3 src, dest;
 	float   t;
 	float   dis;
@@ -43,6 +42,23 @@ private:
 	float   tR;
 	float   disR;
 	Actor* ui;
+
+
+	// 게임시작
+
+	bool	game_start;
+	bool	start_swim;
+	int 	game_start_timer;
+
+
+
+
+
+
+
+
+
+
 
 public:
 	Scene2();
@@ -54,5 +70,8 @@ public:
 	virtual void Render() override;
 	virtual void PreRender() override;
 	virtual void ResizeScreen() override;
+
+	void	game_logic();
+	void	game_manager();
 };
 

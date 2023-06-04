@@ -41,8 +41,14 @@ Game_ui::Game_ui()
 	/// </summary>
 	evnet_start = false;
 	event_cycle_time = 0.0f;
-	event_limit_time = 3.0f;
+	event_limit_time = 8.0f;
 
+	////////////////////
+	player1_bust = false;
+	player2_bust = false;
+
+	player1_drown = false;
+	player2_drown = false;
 }
 
 Game_ui::~Game_ui()
@@ -55,18 +61,24 @@ void Game_ui::Update()
 	{
 		evnet_start = true;
 	}
-
-
 	if (!evnet_start)
 	{
 		visible_gameui(false);
 	}
 	if (evnet_start)
 	{
-		if (event_cycle_time > 10.0f)
+		if (event_cycle_time > 15.0f)
 		{
 			event_cycle_time = 0.0f;
-			event_limit_time = 3.0f;
+			event_limit_time = 8.0f;
+		}
+		if (event_limit_time == 8.0f)
+		{
+			player1_bust = false;
+			player2_bust = false;
+
+			player1_drown = false;
+			player2_drown = false;
 		}
 		event_cycle_time += DELTA; // 이벤트 주기 타이머				10초주기
 		event_limit_time -= DELTA; // 이벤트 수행해야하는 타이머		3초안에
@@ -312,6 +324,7 @@ void Game_ui::p1_element_update()
 			// 모든 입력이 맞을 경우
 				// 1. 시퀸스 재설정 
 				// 2. 부스터 모션 나오가 하는 불 값 둘수 있음
+			player1_bust = true;
 
 		}
 	}
@@ -322,7 +335,7 @@ void Game_ui::p1_element_update()
 		input_count = 0;
 
 		// 빠지는 모션 < 패널티>
-
+		player1_drown = true;
 
 	}
 }
@@ -388,7 +401,7 @@ void Game_ui::p2_element_update()
 			// 모든 입력이 맞을 경우
 				// 1. 시퀸스 재설정
 				// 2. 부스터 모션 나오가 하는 불 값 둘수 있음
-
+			player2_bust = true;
 		}
 	}
 	else if (event_limit_time <= 0)
@@ -398,7 +411,7 @@ void Game_ui::p2_element_update()
 		input_count2 = 0;
 
 		// 빠지는 모션 < 패널티>
-
+		player2_drown = true;
 
 	}
 }
