@@ -1,15 +1,15 @@
 ﻿  Scene2.cpp
-C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(155,36): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(156,36): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(164,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(165,36): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(179,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(180,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(188,34): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(189,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(193,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(194,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(205,34): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(206,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(159,36): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(160,36): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(168,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(169,36): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(182,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(183,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(191,34): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(192,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(196,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(197,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(208,34): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(209,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
      C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\\Build\Game1.lib 라이브러리 및 C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\\Build\Game1.exp 개체를 생성하고 있습니다.
   Game1.vcxproj -> C:\Users\user\Documents\GitHub\ParkVsMicheal\D3D (1)\Build\Game1.exe

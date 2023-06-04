@@ -85,8 +85,8 @@ void Scene2::Update()
     //Camera::main->viewport.height = App.GetHeight();
 
     Cam->SetWorldPosX(player->GetWorldPos().x);
-    Cam->SetWorldPosY(player->GetWorldPos().y+10);
-    Cam->SetWorldPosZ(player->GetWorldPos().z-10);
+    Cam->SetWorldPosY(player->GetWorldPos().y + 15);
+    Cam->SetWorldPosZ(player->GetWorldPos().z - 20);
     Cam->rotation.x = 35 * TORADIAN;
     Cam->rotation.y = 0;
     Cam->rotation.z = 0;
@@ -94,8 +94,8 @@ void Scene2::Update()
     //Cam->viewport.height = App.GetHalfHeight();
 
     Cam2->SetWorldPosX(player2->GetWorldPos().x);
-    Cam2->SetWorldPosY(player2->GetWorldPos().y+10);
-    Cam2->SetWorldPosZ(player2->GetWorldPos().z-10);
+    Cam2->SetWorldPosY(player2->GetWorldPos().y + 15);
+    Cam2->SetWorldPosZ(player2->GetWorldPos().z - 20);
     Cam2->rotation.x = 35 * TORADIAN;
     Cam2->rotation.y = 0;
     Cam2->rotation.z = 0;
@@ -147,7 +147,11 @@ void Scene2::Update()
     //김두호
     pool->Update();
 
-    game_ui->Update();
+    //천재진
+    if (!ismenu) // 일시정지 상태일때 업데이트 하면 안되서 조건문에 넣었습니다. -신관희
+    {
+        game_ui->Update();
+    }
 
     //신관희
     if (pausebutton->MouseOver())
@@ -223,7 +227,11 @@ void Scene2::Update()
 
 void Scene2::LateUpdate()
 {
-    game_ui->set_pos_ui(player, player2);
+    //천재진
+    if (!ismenu) // 일시정지 상태일때 업데이트 하면 안되서 조건문에 넣었습니다. -신관희
+    {
+        game_ui->set_pos_ui(player, player2);
+    }
 
 }
 
@@ -240,6 +248,10 @@ void Scene2::Render()
         player->Render();
         player2->Render();
     }
+
+    // 천재진
+    game_ui->Render(); // 일시정지상태일때 버튼이 위에보여야되서 위치 여기에 두었습니다 - 신관희
+
     if (ismenu)
     {
         if (isstop)
@@ -247,7 +259,6 @@ void Scene2::Render()
             cam1pause->Render();
         }
     }
-    game_ui->Render();
 
     Cam2->Set();
     /// <summary>
@@ -262,6 +273,9 @@ void Scene2::Render()
         player2->Render();
     }
 
+    // 천재진
+    game_ui->Render(); // 일시정지상태일때 버튼이 위에보여야되서 위치 여기에 두었습니다 - 신관희
+
     pausebutton->Render();
     if (ismenu)
     {
@@ -272,7 +286,6 @@ void Scene2::Render()
             cam2pause->Render();
         }
     }
-    game_ui->Render();
 
 }
 
