@@ -93,6 +93,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GameObject", "GameObject", 
 		Contents\GameObject\SwimWin2.xml = Contents\GameObject\SwimWin2.xml
 		Contents\GameObject\SwimWin3.xml = Contents\GameObject\SwimWin3.xml
 		Contents\GameObject\VS.xml = Contents\GameObject\VS.xml
+		Contents\GameObject\win.xml = Contents\GameObject\win.xml
 		Contents\GameObject\XMLTest.xml = Contents\GameObject\XMLTest.xml
 	EndProjectSection
 EndProject
@@ -195,6 +196,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Texture", "Texture", "{24D3
 		Contents\Texture\VS.png = Contents\Texture\VS.png
 		Contents\Texture\w_code.png = Contents\Texture\w_code.png
 		Contents\Texture\water.png = Contents\Texture\water.png
+		Contents\Texture\win.png = Contents\Texture\win.png
 		Contents\Texture\window.png = Contents\Texture\window.png
 		Contents\Texture\wn_code.png = Contents\Texture\wn_code.png
 	EndProjectSection

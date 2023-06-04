@@ -19,7 +19,11 @@ void Scene2::Init()
     player->mainState = MainState::IDLE;
     player->SetLocalPosX(3);
     player2 = Player2::Create();
+<<<<<<< Updated upstream
     player2->SetLocalPosX(31);
+=======
+    player2->SetLocalPosX(40);
+>>>>>>> Stashed changes
     player2->mainState = MainState::IDLE;
 
 
@@ -37,6 +41,8 @@ void Scene2::Init()
     cam1pause->LoadFile("campause1.xml");
     cam2pause = UI::Create();
     cam2pause->LoadFile("campause2.xml");
+    win = UI::Create();
+    win->LoadFile("win.xml");
     ismenu = false;
     isstop = false;
     isstoptime = 0;
@@ -45,6 +51,9 @@ void Scene2::Init()
     // 수영장 끝지점하고 시작지점하고 여기서 설정하세요
     turn_point = 390;
     goal_point = 0;
+
+    //사운드 추가
+    SOUND->AddSound("scene2bgm.mp3", "scene2bgm", false);
 
     //카메라
     Cam = Camera::Create();
@@ -145,6 +154,7 @@ void Scene2::Update()
     playbutton->RenderHierarchy();
     cam1pause->RenderHierarchy();
     cam2pause->RenderHierarchy();
+    win->RenderHierarchy();
     Cam2->RenderHierarchy();
     Cam->RenderHierarchy();
     grid->RenderHierarchy();
@@ -157,6 +167,9 @@ void Scene2::Update()
 
     if (game_start_timer == 200)
     {
+        //사운드 추가
+        SOUND->Play("scene2bgm");
+
         start_swim = true;
         if (start_swim)
         {
@@ -277,9 +290,9 @@ void Scene2::Update()
     exitbutton->Update();
     pausebutton->Update();
     playbutton->Update();
+    win->Update();
     cam1pause->Update();
     cam2pause->Update();
-
 
     if (!isplayer) // 모델링용 객체입니다 신경ㄴㄴ
         dead->Update();
@@ -329,6 +342,12 @@ void Scene2::Render()
             cam1pause->Render();
         }
     }
+    if (player->mainState == MainState::WINNER)
+    {
+        //사운드 추가
+        SOUND->Play("scene2bgm");
+        win->Render();
+    }
 
     Cam2->Set();
     /// <summary>
@@ -361,7 +380,12 @@ void Scene2::Render()
             cam2pause->Render();
         }
     }
-
+    if (player2->mainState == MainState::WINNER)
+    {
+        //사운드 추가
+        SOUND->Play("scene2bgm");
+        win->Render();
+    }
 }
 void Scene2::PreRender()
 {

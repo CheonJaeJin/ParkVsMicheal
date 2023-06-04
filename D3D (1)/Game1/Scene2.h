@@ -14,6 +14,7 @@ private:
 	UI* playbutton;
 	UI* cam1pause;
 	UI* cam2pause;
+	UI* win;
 	bool ismenu;
 	bool isstop;
 	int isstoptime;

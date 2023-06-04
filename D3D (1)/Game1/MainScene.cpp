@@ -41,6 +41,9 @@ void MainScene::Init()
     VS->LoadFile("VS.xml");
     pelp = UI::Create();
     pelp->LoadFile("pelp.xml");
+
+    //사운드 추가
+    SOUND->AddSound("Canon.mp3", "Canon"); // 배경음악
 }
 
 void MainScene::Release()
@@ -51,6 +54,9 @@ void MainScene::Release()
 
 void MainScene::Update()
 {
+    //사운드 추가
+    SOUND->Play("Canon");
+
     Camera::main->width = App.GetWidth();
     Camera::main->height = App.GetHeight();
     Camera::main->viewport.width = App.GetWidth();
@@ -87,6 +93,8 @@ void MainScene::Update()
         {
             SCENE->ChangeScene("SC2")->Init();
             cout << "Button Ui Mouse Over" << endl;
+            //사운드 추가
+            SOUND->Stop("Canon");
         }
     }
     else if (!button->MouseOver())
