@@ -70,9 +70,10 @@ void Scene2::Init()
     //김두호
     pool = Actor::Create();
     pool->LoadFile("swimmingPool3.xml");
-    pool->SetWorldPos(Vector3(-8.5, -4, 15));
+    pool->SetWorldPos(Vector3(-8.5, -3.5f, 15));
     pool2 = Actor::Create();
     pool2->LoadFile("swimmingPool4.xml");
+    pool2->SetWorldPosY(-3.5f);
     // 게임 스타트 
     game_start = false;
     start_swim = false;
