@@ -1,16 +1,1 @@
-﻿  Scene2.cpp
-C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(150,30): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(220,36): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(221,36): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(229,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(230,36): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(243,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(244,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(252,34): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(253,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(257,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(258,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(269,34): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(270,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
-     C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\\Build\Game1.lib 라이브러리 및 C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\\Build\Game1.exp 개체를 생성하고 있습니다.
-  Game1.vcxproj -> C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Build\Game1.exe
+﻿  Game1.vcxproj -> C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Build\Game1.exe

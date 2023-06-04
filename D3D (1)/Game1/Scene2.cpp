@@ -74,6 +74,9 @@ void Scene2::Init()
     pool2 = Actor::Create();
     pool2->LoadFile("swimmingPool4.xml");
     pool2->SetWorldPosY(-3.5f);
+
+    bg = Actor::Create();
+    bg->LoadFile("Bg.xml");
     // 게임 스타트 
     game_start = false;
     start_swim = false;
@@ -124,6 +127,7 @@ void Scene2::Update()
     //  김두호
     pool->RenderHierarchy();
     pool2->RenderHierarchy();
+    bg->RenderHierarchy();
 
     // 천재진
     game_ui->RenderHierarchy();
@@ -207,6 +211,7 @@ void Scene2::Update()
     //김두호
     pool->Update();
     pool2->Update();
+    bg->Update();
 
     //천재진
     if (!ismenu && !isgameover) // 일시정지 상태일때 업데이트 하면 안되서 조건문에 넣었습니다. -신관희
@@ -302,6 +307,7 @@ void Scene2::Render()
     // 
     pool->Render();
     pool2->Render();
+    bg->Render();
     if (!isplayer)// 모델링용 객체입니다 신경ㄴㄴ
         dead->Render();
     else
@@ -330,6 +336,7 @@ void Scene2::Render()
     /// </summary>
     pool->Render();
     pool2->Render();
+    bg->Render();
     if (!isplayer)// 모델링용 객체입니다 신경ㄴㄴ
         dead->Render();
     else

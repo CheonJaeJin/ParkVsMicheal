@@ -33,6 +33,7 @@ private:
 	// 김두호
 	Actor* pool;
 	Actor* pool2;
+	Actor* bg;
 
 	// 수업관련
 	Grid* grid;
