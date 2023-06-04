@@ -31,7 +31,8 @@ private:
 	class Game_ui* game_ui;
 
 	// 김두호
-	SwimmingPool* pool;
+	Actor* pool;
+	Actor* pool2;
 
 	// 수업관련
 	Grid* grid;

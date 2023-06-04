@@ -1,1 +1,16 @@
-﻿  Game1.vcxproj -> C:\Users\cjswo\Documents\GitHub\ParkVsMicheal\D3D (1)\Build\Game1.exe
+﻿  Scene2.cpp
+C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(149,30): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(219,36): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(220,36): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(228,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(229,36): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(242,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(243,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(251,34): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(252,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(256,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(257,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(268,34): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Game1\Scene2.cpp(269,35): warning C4305: '=': 'double'에서 'float'(으)로 잘립니다.
+     C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\\Build\Game1.lib 라이브러리 및 C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\\Build\Game1.exp 개체를 생성하고 있습니다.
+  Game1.vcxproj -> C:\코드\3D반\새 폴더\ParkVsMicheal\D3D (1)\Build\Game1.exe

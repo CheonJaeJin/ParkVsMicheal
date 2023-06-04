@@ -17,8 +17,9 @@ void Scene2::Init()
     //신관희
     player = Player::Create();
     player->mainState = MainState::IDLE;
+    player->SetLocalPosX(3);
     player2 = Player2::Create();
-    player2->SetLocalPosX(15);
+    player2->SetLocalPosX(31);
     player2->mainState = MainState::IDLE;
 
 
@@ -42,7 +43,7 @@ void Scene2::Init()
     isgameover = false;
 
     // 수영장 끝지점하고 시작지점하고 여기서 설정하세요
-    turn_point = 50;
+    turn_point = 390;
     goal_point = 0;
 
     //카메라
@@ -67,9 +68,11 @@ void Scene2::Init()
     game_ui = Game_ui::Create();
 
     //김두호
-    pool = SwimmingPool::Create();
+    pool = Actor::Create();
+    pool->LoadFile("swimmingPool3.xml");
     pool->SetWorldPos(Vector3(-8.5, -4, 15));
-
+    pool2 = Actor::Create();
+    pool2->LoadFile("swimmingPool4.xml");
     // 게임 스타트 
     game_start = false;
     start_swim = false;
@@ -110,7 +113,7 @@ void Scene2::Update()
     //Cam2->viewport.height = App.GetHalfHeight();
 
     Camera::ControlMainCam();
-
+    cout << player->GetWorldPos().z << endl;
     //debug
     ImGui::Text("FPS: %d", TIMER->GetFramePerSecond());
 
@@ -119,6 +122,7 @@ void Scene2::Update()
 
     //  김두호
     pool->RenderHierarchy();
+    pool2->RenderHierarchy();
 
     // 천재진
     game_ui->RenderHierarchy();
@@ -201,6 +205,7 @@ void Scene2::Update()
 
     //김두호
     pool->Update();
+    pool2->Update();
 
     //천재진
     if (!ismenu && !isgameover) // 일시정지 상태일때 업데이트 하면 안되서 조건문에 넣었습니다. -신관희
@@ -295,6 +300,7 @@ void Scene2::Render()
     //grid->Render();
     // 
     pool->Render();
+    pool2->Render();
     if (!isplayer)// 모델링용 객체입니다 신경ㄴㄴ
         dead->Render();
     else
@@ -322,6 +328,7 @@ void Scene2::Render()
     /// //////////////////////////////////
     /// </summary>
     pool->Render();
+    pool2->Render();
     if (!isplayer)// 모델링용 객체입니다 신경ㄴㄴ
         dead->Render();
     else
