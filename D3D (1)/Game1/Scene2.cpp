@@ -167,7 +167,6 @@ void Scene2::Update()
     if (ismenu)
     {
         isstoptime++;
-        //cout << isstoptime << endl;
         if (isstoptime%100 == 50)
         {
             isstop = !isstop;
@@ -194,6 +193,7 @@ void Scene2::Update()
         playbutton->scale.y = 0.20;
         if (INPUT->KeyDown(VK_LBUTTON))
         {
+            isstoptime = 0;
             ismenu = false;
             // 타이머클래스 멤버 변수 두개 Public으로 이동!
             TIMER->deltaScaleTime = TIMER->deltaTime * App.deltaScale;
