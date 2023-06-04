@@ -290,7 +290,7 @@ void Player::booster() // 커맨드입력 성공 상태일때 애니매이션
         {
             movecount3 = 2;
             boostercount++;
-            if (boostercount == 3)
+            if (boostercount == 1)
             {
                 boostercount = 0;
                 mainState = MainState::SWIMMING;
@@ -331,7 +331,7 @@ void Player::drown()  // 커맨드입력 실패상태일때 애니매이션
         {
             movecount4 = 6;
             drowncount++;
-            if (drowncount == 3)
+            if (drowncount == 1)
             {
                 drowncount = 0;
                 position.y = playerypos; // 다시수영상태로 돌릴때 저장된높이로 세팅해준다.

@@ -17,6 +17,9 @@ private:
 	bool ismenu;
 	bool isstop;
 	int isstoptime;
+	int turn_point;
+	int goal_point;
+	bool isgameover;
 
 
 	// Ä«¸Þ¶ó

@@ -39,6 +39,11 @@ void Scene2::Init()
     ismenu = false;
     isstop = false;
     isstoptime = 0;
+    isgameover = false;
+
+    // 수영장 끝지점하고 시작지점하고 여기서 설정하세요
+    turn_point = 50;
+    goal_point = 0;
 
     //카메라
     Cam = Camera::Create();
@@ -69,10 +74,7 @@ void Scene2::Init()
     game_start = false;
     start_swim = false;
     game_start_timer = 500;
-
-
     grid = Grid::Create();
-
 }
 
 void Scene2::Release()
@@ -162,7 +164,26 @@ void Scene2::Update()
         game_logic();
     }
 
-    cout << "스타트 타이머 : " << game_start_timer << endl;
+    //cout << "스타트 타이머 : " << game_start_timer << endl;
+    cout << player2->GetWorldPos().z << endl;
+
+    // turn_point 에도착하면 플레이어 회전
+    if (player->GetWorldPos().z > turn_point) 
+        player->isturn = true;
+    if (player2->GetWorldPos().z > turn_point)
+        player2->isturn = true;
+    if (player->isturn == true && player->GetWorldPos().z < goal_point)
+    {
+        isgameover = true;
+        player->mainState = MainState::WINNER;
+        player2->mainState = MainState::LOSER;
+    }
+    else if (player2->isturn == true && player2->GetWorldPos().z < goal_point)
+    {
+        isgameover = true;
+        player2->mainState = MainState::WINNER;
+        player->mainState = MainState::LOSER;
+    }
 
 
 
@@ -182,7 +203,7 @@ void Scene2::Update()
     pool->Update();
 
     //천재진
-    if (!ismenu) // 일시정지 상태일때 업데이트 하면 안되서 조건문에 넣었습니다. -신관희
+    if (!ismenu && !isgameover) // 일시정지 상태일때 업데이트 하면 안되서 조건문에 넣었습니다. -신관희
     {
         game_ui->Update();
     }
@@ -283,7 +304,10 @@ void Scene2::Render()
     }
 
     // 천재진
-    game_ui->Render(); // 일시정지상태일때 버튼이 위에보여야되서 위치 여기에 두었습니다 - 신관희
+    if (!isgameover) // 게임오버가아닐때만 랜더
+    {
+        game_ui->Render(); // 일시정지상태일때 버튼이 위에보여야되서 위치 여기에 두었습니다 - 신관희
+    }
 
     if (ismenu)
     {
@@ -307,7 +331,10 @@ void Scene2::Render()
     }
 
     // 천재진
-    game_ui->Render(); // 일시정지상태일때 버튼이 위에보여야되서 위치 여기에 두었습니다 - 신관희
+    if (!isgameover) // 게임오버가아닐때만 랜더
+    {
+        game_ui->Render(); // 일시정지상태일때 버튼이 위에보여야되서 위치 여기에 두었습니다 - 신관희
+    }
 
     pausebutton->Render();
     if (ismenu)
