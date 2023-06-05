@@ -153,7 +153,7 @@ ID3D11Buffer* Camera::viewPosBuffer = nullptr;
 ID3D11Buffer* Camera::viewUpBuffer = nullptr;
 ID3D11Buffer* Camera::viewForwardBuffer = nullptr;
 Camera* Camera::main = nullptr;
-float Camera::mainCamSpeed = 10.0f;
+float Camera::mainCamSpeed = 100.0f;
 
 void Camera::CreateStaticMember()
 {
@@ -273,7 +273,7 @@ void Camera::ControlMainCam()
 	//	main->MoveWorldPos(main->GetUp() * DELTA * mainCamSpeed);
 	//}
 
-	//마우스 우클릭시
+	////마우스 우클릭시
 	//if (INPUT->KeyPress(VK_RBUTTON))
 	//{
 	//	Vector3 Rot;
@@ -281,8 +281,8 @@ void Camera::ControlMainCam()
 	//	Rot.y = INPUT->movePosition.x * 0.001f;
 	//	main->rotation += Rot;
 	//}
-	//휠키로 카메라 앞뒤조절
-	main->MoveWorldPos(main->GetForward() * INPUT->wheelMoveValue.z * DELTA);
+	////휠키로 카메라 앞뒤조절
+	//main->MoveWorldPos(main->GetForward() * INPUT->wheelMoveValue.z * DELTA);
 }
 //
 //bool Camera::Intersect(Vector3 coord)

@@ -93,6 +93,7 @@ void MainScene::Update()
         {
             SCENE->ChangeScene("SC2")->Init();
             cout << "Button Ui Mouse Over" << endl;
+
             //사운드 추가
             SOUND->Stop("Canon");
         }

@@ -19,11 +19,7 @@ void Scene2::Init()
     player->mainState = MainState::IDLE;
     player->SetLocalPosX(3);
     player2 = Player2::Create();
-<<<<<<< Updated upstream
     player2->SetLocalPosX(31);
-=======
-    player2->SetLocalPosX(40);
->>>>>>> Stashed changes
     player2->mainState = MainState::IDLE;
 
 
@@ -85,7 +81,7 @@ void Scene2::Init()
     pool2->SetWorldPosY(-3.5f);
 
     bg = Actor::Create();
-    bg->LoadFile("Bg.xml");
+    bg->LoadFile("Bg2.xml");
     // 게임 스타트 
     game_start = false;
     start_swim = false;
@@ -102,10 +98,7 @@ void Scene2::Release()
 
 void Scene2::Update()
 {
-    //Camera::main->width = App.GetWidth();
-    //Camera::main->height = App.GetHeight();
-    //Camera::main->viewport.width = App.GetWidth();
-    //Camera::main->viewport.height = App.GetHeight();
+
 
     Cam->SetWorldPosX(player->GetWorldPos().x);
     Cam->SetWorldPosY(player->GetWorldPos().y + 15);
@@ -113,8 +106,7 @@ void Scene2::Update()
     Cam->rotation.x = 35 * TORADIAN;
     Cam->rotation.y = 0;
     Cam->rotation.z = 0;
-    //Cam->viewport.width = App.GetHalfWidth();
-    //Cam->viewport.height = App.GetHalfHeight();
+
 
     Cam2->SetWorldPosX(player2->GetWorldPos().x);
     Cam2->SetWorldPosY(player2->GetWorldPos().y + 15);
@@ -122,8 +114,7 @@ void Scene2::Update()
     Cam2->rotation.x = 35 * TORADIAN;
     Cam2->rotation.y = 0;
     Cam2->rotation.z = 0;
-    //Cam2->viewport.width = App.GetHalfWidth();
-    //Cam2->viewport.height = App.GetHalfHeight();
+
 
     Camera::ControlMainCam();
     cout << player->GetWorldPos().z << endl;
@@ -169,7 +160,6 @@ void Scene2::Update()
     {
         //사운드 추가
         SOUND->Play("scene2bgm");
-
         start_swim = true;
         if (start_swim)
         {
@@ -185,9 +175,6 @@ void Scene2::Update()
         game_ui->evnet_start = true;
         game_logic();
     }
-
-    cout << "스타트 타이머 : " << game_start_timer << endl;
-    // cout << player2->GetWorldPos().z << endl;
 
     // turn_point 에도착하면 플레이어 회전
     if (player->GetWorldPos().z > turn_point) 
@@ -294,6 +281,7 @@ void Scene2::Update()
     cam1pause->Update();
     cam2pause->Update();
 
+
     if (!isplayer) // 모델링용 객체입니다 신경ㄴㄴ
         dead->Update();
     else
@@ -386,6 +374,7 @@ void Scene2::Render()
         SOUND->Play("scene2bgm");
         win->Render();
     }
+
 }
 void Scene2::PreRender()
 {
